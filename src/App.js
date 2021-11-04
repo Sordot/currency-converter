@@ -81,7 +81,8 @@ function App() {
 
   return <>
     <div className="App">
-      <h1>Convert!</h1>
+      <h1>Convert Your Currencies Below!</h1>
+      <p>Exchange Rates Updated Hourly</p>
       <Row 
         currencies={currencies}
         selectedCurrency={fromCurrency}

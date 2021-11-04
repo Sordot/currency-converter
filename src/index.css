@@ -16,7 +16,10 @@ body {
 }
 
 h1 {
+  text-shadow: 2px 0 0 #006600, 0 -2px 0 #006600, 0 2px 0 #006600, -2px 0 0 #006600;
   color: silver;
+  font-size: 36px;
+  font-weight: bold;
   margin: 0;
   margin-bottom: 10px;
 }
@@ -32,6 +35,19 @@ h1 {
 select {
   margin-left: 10px;
   background: silver;
+}
+
+option {
+  background: silver;
+}
+
+p {
+  color: silver;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 4px;
+
 }
 
 .equals {
