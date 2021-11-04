@@ -3,7 +3,7 @@
 * {
   margin: 0;
   font-family: 'Noto Sans';
-  background-color: silver;
+  background-color: #202020;
   box-sizing: border-box;
 }
 
@@ -16,12 +16,14 @@ body {
 }
 
 h1 {
+  color: silver;
   margin: 0;
   margin-bottom: 10px;
 }
 
 .input {
-  border: 2px solid black;
+  border: 4px solid #006600;
+  background: silver;
   border-radius: 4px;
   padding: 8px;
   width: 14em;
@@ -29,9 +31,11 @@ h1 {
 
 select {
   margin-left: 10px;
+  background: silver;
 }
 
 .equals {
+  color: silver;
   font-weight: bold;
   font-size: 26px;
 }
