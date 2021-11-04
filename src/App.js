@@ -3,11 +3,15 @@ import Row from "./Row";
 
 function App() {
 
+  //list of currencies for dropdown
   const [currencies, setCurrencies] = useState([])
+  //state that hold the values of our top and bottom rows, top = from, bottom = to
   const [fromCurrency, setFromCurrency] = useState()
   const [toCurrency, setToCurrency] = useState()
+  //set exchangeRate for when conversion is calculated
   const [exchangeRate, setExchangeRate] = useState()
   const [amount, setAmount] = useState(1)
+  //true if our top row holds an input value, used to determine whether to convert from top or bottom
   const [amountInFrom, setAmountInFrom] = useState(true)
 
   //convert based off of exchangeRate
@@ -22,6 +26,7 @@ function App() {
     fromAmount = amount / exchangeRate
   }
   
+  //control the inputs of the top and bottom rows
   const handleFromAmountChange = (e) => {
     setAmount(e.target.value)
     setAmountInFrom(true)
@@ -47,6 +52,7 @@ function App() {
       setFromCurrency(data.base)
       //set our default converted currency to the first item in our currencies array
       setToCurrency(starterCurrency)
+      //default our exchange rate to convert with the top row as a base
       setExchangeRate(data.rates[starterCurrency])
     }
     
@@ -54,10 +60,13 @@ function App() {
 
   },[])
 
+  //fetch from the api again with the appropriate base and symbol for the desired final currency
   useEffect(() => {
 
+    //if we have values in both fields
     if (fromCurrency !== null && toCurrency !== null) {
       
+      //fetch from the api and set the exchange rate
       const fetchConvert = async () => {
         const apiResponse = await fetch(`https://api.exchangerate.host/latest?base=${fromCurrency}&symbols=${toCurrency}`)
         const data = await apiResponse.json()
@@ -67,7 +76,7 @@ function App() {
       fetchConvert()
 
     }
-
+    //fire the useEffect any time the value of either row changes
   }, [fromCurrency, toCurrency])
 
   return <>
